@@ -1,0 +1,50 @@
+import React, { useState } from "react";
+
+function ToDoList() {
+
+    const [tasks, setTasks] = useState(["Eat Breakfast", "Take a shower", "Walk the dog"]);
+    const [newTask, setNewTask] = useState("");
+
+
+    function handleInputChange(e) {
+        setNewTask(e.target.value)
+    }
+
+    function addTask() {
+
+    }
+
+    function deleteTask(index) {
+
+    }
+
+    function moveTaskDown(index) {
+
+    }
+
+    return (<div className="to-do-list">
+        <h1>TO-DO-LIST</h1>
+        <div>
+            <input type="text"
+                placeholder="Enter a task"
+                value={newTask}
+                onChange={handleInputChange} />
+            <button className="add-button" onClick={addTask}>Add</button>
+        </div>
+        <div>
+            <ol>
+                {tasks.map((task, index) =>
+                    <li key={index}>
+                        <span className="text">{task}</span>
+                        <button className="delete-button" onClick={() => deleteTask(index)}>Delete</button>
+                        <button className="move-button" onClick={() => moveTaskUp}>MoveUp</button>
+                        <button className="move-button" onClick={() => moveTaskUp}>Movedown</button>
+                    </li>
+                )}
+            </ol>
+        </div>
+    </div>)
+}
+
+
+export default ToDoList
